@@ -9,25 +9,11 @@ const TOKEN = process.env.TELEGRAM_TOKEN;
 const TELEGRAM_API = `https://api.telegram.org/bot${TOKEN}`;
 
 // Set webhook using the Vercel URL dynamically
-const WEBHOOK_URL = process.env.RENDER_EXTERNAL_URL
-  ? `https://${process.env.RENDER_EXTERNAL_URL}/webhook`
-  : 'https://your-local-url/webhook'; // fallback to local or testing if no Vercel URL is available
-
-async function setWebhook() {
-  await fetch(`${TELEGRAM_API}/setWebhook`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ url: WEBHOOK_URL })
-  });
-  console.log('Webhook set');
-}
-
-setWebhook();
 
 // Handle incoming updates
 app.post('/webhook', async (req, res) => {
   const message = req.body.message;
-  console.log(req);
+  console.log('body', req.body);
   if (message && message.text) {
     console.log('Received message:', message.text);  // Log the message content
   } else {
