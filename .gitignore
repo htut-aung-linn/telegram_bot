@@ -1,0 +1,17 @@
+# Ignore node_modules folder
+node_modules/
+
+# Ignore all .log files
+*.log
+
+# Ignore all .env files (for sensitive information like API keys)
+.env
+
+# Ignore specific files (e.g., bot token)
+bot.js
+
+# Ignore the entire build folder
+build/
+
+# Ignore any files in .vscode folder (e.g., IDE settings)
+.vscode/
