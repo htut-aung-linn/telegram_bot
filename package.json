@@ -1,4 +1,11 @@
 {
+  "name": "bot",
+  "version": "1.0.0",
+  "description": "project description",
+  "main": "telegram.js",
+  "scripts": {
+    "start": "node telegram.js"
+  },
   "dependencies": {
     "body-parser": "^2.2.0",
     "express": "^5.1.0",
