@@ -5,7 +5,7 @@ const fetch = require('node-fetch'); // Built-in in Node 18+, otherwise install 
 const app = express();
 app.use(bodyParser.json());
 
-const TOKEN = '7743875186:AAEh9s3E7WCJU7ZW-QLXoNzjakVZM-3KD_s';
+const TOKEN = process.env.TELEGRAM_TOKEN;
 const TELEGRAM_API = `https://api.telegram.org/bot${TOKEN}`;
 
 // Set webhook using the Vercel URL dynamically
