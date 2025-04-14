@@ -13,7 +13,7 @@ function processdata(data){
     if ('message' in data){
         return data.message;
     } else if('callback_query' in data){
-        data.chat = data.message.chat;
+        data['chat'] = data.callback_query.message.chat;
         return data.callback_query;
     } else return data;
 }
