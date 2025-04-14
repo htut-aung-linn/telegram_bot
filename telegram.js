@@ -9,11 +9,18 @@ const TOKEN = process.env.TELEGRAM_TOKEN;
 const TELEGRAM_API = `https://api.telegram.org/bot${TOKEN}`;
 
 // Set webhook using the Vercel URL dynamically
-
+function processdata(data){
+    if ('message' in data){
+        return data.message;
+    } else if('callback_query' in data){
+        data.chat = data.message.chat;
+        return data.callback_query;
+    } else return data;
+}
 // Handle incoming updates
 app.post('/webhook', async (req, res) => {
-  const message = req.body.message;
-  console.log('body', req.body);
+  const message = processdata(req.body);
+  console.log('data: ', message);
   if (message && message.text) {
     console.log('Received message:', message.text);  // Log the message content
   } else {
